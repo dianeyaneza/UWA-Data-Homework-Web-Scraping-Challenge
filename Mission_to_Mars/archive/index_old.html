@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+     
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #c9c8c8;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+</style>
+
+<body>
+  <div class="container">
+    <div class="row" style="padding-top: 20px;">
+      <div class="col-md-12">
+        <!-- Header Section -->
+        <div class="jumbotron text-center">
+          <h1><strong>Mission to Mars</strong></h1>
+          <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+        <!-- End Header Section -->
+        <!-- News Section -->
+        <div>
+          <h2 style="font-size: x-large;"><strong>Latest Mars News</strong></h2>
+          
+          <h4><strong>
+          NASA Ingenuity Mars Helicopter Prepares for First Flight</strong></h4>
+
+          <!-- <h4><strong>
+          {{mars.title}}</strong></h4>  -->
+
+          <p>Now uncocooned from its protective carbon-fiber shield, the helicopter is being readied for its next steps.</p>
+          <p>{{mars.paragraph}}</p>
+
+        </div>
+        <!-- End News Section -->
+        <!-- Middle Section -->
+        <div class="row">
+          <div class="col-md-8" style="padding-left:10;">  
+              <h2 style="font-size: x-large;"><strong>Featured Mars Image</strong></h2> 
+              <img src="https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/image/featured/mars3.jpg" alt="Featured Image" align= "left" width="740">
+          </div>
+          <div class="col-md-4">  
+            <h2 style="font-size: x-large;"><strong>Mars Facts</strong></h2>
+            <table>
+              <thead>
+                <tr>
+                  <th><strong>Description</strong></th>
+                  <th><strong>Facts</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Equatorial Diameter:</strong></td>
+                  <td>6,792 km</td>
+                </tr>
+                <tr>
+                  <td><strong>Polar Diameter:</strong></td>
+                  <td>6,752 km</td>
+                </tr>
+                <tr>
+                  <td><strong>Mass:</strong></td>
+                  <td>6.39 × 10^23 kg (0.11 Earths)</td>
+                </tr>
+                <tr>
+                  <td><strong>Moons:</strong></td>
+                  <td>2 (Phobos &amp; Deimos)</td>
+                </tr>
+                <tr>
+                  <td><strong>Orbit Distance:</strong></td>
+                  <td>227,943,824 km (1.38 AU)</td>
+                </tr>
+                <tr>
+                  <td><strong>Orbit Period:</strong></td>
+                  <td>687 days (1.9 years)</td>
+                </tr>
+                <tr>
+                  <td><strong>Surface Temperature:</strong></td>
+                  <td>-87 to -5 °C</td>
+                </tr>
+                <tr>
+                  <td><strong>First Record:</strong></td>
+                  <td>2nd millennium BC</td>
+                </tr>
+                <tr>
+                  <td><strong>Recorded By:</strong></td>
+                  <td>Egyptian astronomers</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> 
+          <!-- End Middle Section -->
+      </div> 
+      </div>       
+   </div>        
+ </div>
+<!-- Bottom Section -->
+  <div class="container">
+    <div class="row" style="padding-top: 20px;">
+        <div class="col-md-12 whitebackground">
+            <h2 style="text-align: center; font-size: x-large;"><strong>
+                Mars Hemispheres</strong>
+            </h2>
+            <hr>
+            <div class="container">
+                <div class="row" style="padding-left:0;">
+                    <div class="col-md-6"">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg" alt="Cerberus" align= "center" width="525"></li>
+                        <li class="list-group-item"><h4><strong>Cerberus Hemisphere</strong></h4></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/schiaparelli_enhanced.tif/full.jpg" alt="Schiaparelli" align= "center" width="525"></li>
+                        <li class="list-group-item"><h4><strong>Schiaparelli Hemisphere</strong></h4></li>
+                      </ul>
+                    </div>
+                </div>
+                <div class="row" style="padding-left:0;">
+                  <div class="col-md-6">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif/full.jpg" alt="Syrtis Major" align= "center" width="525"></li>
+                      <li class="list-group-item"><h4><strong>Syrtis Major Hemisphere</strong></h4></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/valles_marineris_enhanced.tif/full.jpg" alt="Valles Marineris" align= "center" width="525"></li>
+                      <li class="list-group-item"><h4><strong>Valles Marineris Hemisphere</strong></h4></li>
+                    </ul>
+                  </div>
+              </div>
+    </div>
+ </div>
+ <!-- End Bottom Section -->
+</body>
+
+</html>

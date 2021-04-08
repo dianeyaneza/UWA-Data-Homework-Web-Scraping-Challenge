@@ -10,16 +10,19 @@ def scrape():
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=True)
 
+    mars_news_title, mars_news_paragraph = news(browser)
+    
     results = {
         "title": mars_news_title,
         "paragraph": mars_news_paragraph,
         "featured": image(browser),
-        "facts": facts(),
-        "hemis": hemis()
+        "facts": facts(browser),
+        "hemis": hemis(browser)
         }
     browser.quit()
+    print(results)
 
-    return(results)
+    return results
 
 def news(browser):
     # Scrape the NASA Mars News Site
@@ -29,7 +32,9 @@ def news(browser):
     news_soup = BeautifulSoup(html, 'html.parser')
     # collect the latest News Title and Paragraph Text.
     mars_news_title = news_soup.find_all('div', class_="content_title")[1].text
-    mars_news_paragraph = news_soup.find_all('div', class_="article_teaser_body")[0].text
+    mars_news_paragraph = news_soup.find('div', class_="article_teaser_body")
+    print(mars_news_paragraph)
+    mars_news_paragraph = mars_news_paragraph.text
     return mars_news_title, mars_news_paragraph
 
 def image(browser):
@@ -51,8 +56,9 @@ def facts(browser):
     # Use Pandas to convert the data
     marsfacts_df = table[0]
     marsfacts_df.columns = ['Fact','Value']
+    marsfacts_df.set_index('Fact', inplace=True)
     # Use Pandas to convert the data to a HTML table string.
-    marsfacts_html = marsfacts_df.to_html()
+    marsfacts_html = marsfacts_df.to_html(header=False)
     return marsfacts_html
 
 def hemis(browser):
