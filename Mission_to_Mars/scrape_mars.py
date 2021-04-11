@@ -30,14 +30,21 @@ def news(browser):
     browser.visit(news_url)
     html = browser.html
     news_soup = BeautifulSoup(html, 'html.parser')
-    # collect the latest News Title and Paragraph Text.
-    mars_news_title = news_soup.find('div', class_="content_title")
-    mars_news_paragraph = news_soup.find('div', class_="article_teaser_body")
-    mars_news_title = mars_news_title.text
-    mars_news_paragraph = mars_news_paragraph.text
-    print(mars_news_title)
-    print(mars_news_paragraph)
+
+    news_results = news_soup.find[0]("div", class_='list_text')
+    for result in news_results:
+        mars_news_title = result.find('div',class_="content_title").text
+        mars_news_paragraph = result.find('div',class_="article_teaser_body").text
     return mars_news_title, mars_news_paragraph
+
+    # collect the latest News Title and Paragraph Text.
+    # mars_news_title = news_soup.find_all('div',class_="content_title")[1].text
+    # mars_news_paragraph = news_soup.find_all('div',class_="article_teaser_body")[0].text
+    # # mars_news_title = mars_news_title.text
+    # # mars_news_paragraph = mars_news_paragraph.text
+    # print(mars_news_title)
+    # print(mars_news_paragraph)
+    # return mars_news_title, mars_news_paragraph
 
 def image(browser):
     # Scrape the Featured Mars Image
