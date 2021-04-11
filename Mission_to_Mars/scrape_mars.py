@@ -31,10 +31,12 @@ def news(browser):
     html = browser.html
     news_soup = BeautifulSoup(html, 'html.parser')
     # collect the latest News Title and Paragraph Text.
-    mars_news_title = news_soup.find_all('div', class_="content_title")[1].text
+    mars_news_title = news_soup.find('div', class_="content_title")
     mars_news_paragraph = news_soup.find('div', class_="article_teaser_body")
-    print(mars_news_paragraph)
+    mars_news_title = mars_news_title.text
     mars_news_paragraph = mars_news_paragraph.text
+    print(mars_news_title)
+    print(mars_news_paragraph)
     return mars_news_title, mars_news_paragraph
 
 def image(browser):
