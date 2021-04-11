@@ -13,15 +13,12 @@ def scrape():
     mars_news_title, mars_news_paragraph = news(browser)
     
     results = {
-        "title": mars_news_title,
-        "paragraph": mars_news_paragraph,
-        "featured": image(browser),
-        "facts": facts(browser),
-        "hemis": hemis(browser)
-        }
-    browser.quit()
-    print(results)
-
+    "title": mars_news_title,
+    "paragraph": mars_news_paragraph,
+    "featured": image(browser),
+    "facts": facts(browser),
+    "hemis": hemis(browser)
+    }
     return results
 
 def news(browser):
@@ -31,20 +28,11 @@ def news(browser):
     html = browser.html
     news_soup = BeautifulSoup(html, 'html.parser')
 
-    news_results = news_soup.find[0]("div", class_='list_text')
-    for result in news_results:
-        mars_news_title = result.find('div',class_="content_title").text
-        mars_news_paragraph = result.find('div',class_="article_teaser_body").text
+    news_results = news_soup.find('li',class_="slide")
+    for news_result in news_results:
+        mars_news_title = news_result.find('div',class_='content_title').find('a').text
+        mars_news_paragraph = news_result.find('div',class_='article_teaser_body').text
     return mars_news_title, mars_news_paragraph
-
-    # collect the latest News Title and Paragraph Text.
-    # mars_news_title = news_soup.find_all('div',class_="content_title")[1].text
-    # mars_news_paragraph = news_soup.find_all('div',class_="article_teaser_body")[0].text
-    # # mars_news_title = mars_news_title.text
-    # # mars_news_paragraph = mars_news_paragraph.text
-    # print(mars_news_title)
-    # print(mars_news_paragraph)
-    # return mars_news_title, mars_news_paragraph
 
 def image(browser):
     # Scrape the Featured Mars Image
@@ -96,3 +84,7 @@ def hemis(browser):
         # Append the dictionary with the image url string and the hemisphere title to a list. This list will contain one dictionary for each hemisphere.
         hemis_img_urls.append(img_dict)
     return hemis_img_urls
+
+    browser.quit()
+    
+    print(results)
